@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Article } from './article';
 
 @Component({
   selector: 'app-root',
@@ -6,22 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  articles: Object[];
+  articles: Article[];
 
   constructor() {
     this.articles = [
-      {
-      title: "The Angular 2 screencast",
-      description: 'The best way to learn angular 2'
-      },
-      {
-      title: "The Angular 3 screencast",
-      description: 'The best way to learn angular 3'
-      },
-      {
-      title: "The Angular 4 screencast",
-      description: 'The best way to learn angular 4'
-      },
+      new Article(
+         "The Angular 2 screencast",
+        'The best way to learn angular 2'
+      ),
+      new Article(
+         "The Angular 3 screencast",
+        'The best way to learn angular 3'
+      ),
     ]
   }
 
