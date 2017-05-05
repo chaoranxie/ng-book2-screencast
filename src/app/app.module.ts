@@ -9,13 +9,15 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 
 import { ArticleService } from './article.service';
+import { ArticleListHeaderComponent } from './article-list-header/article-list-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     ArticleComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    ArticleListHeaderComponent
   ],
   imports: [
     BrowserModule,
