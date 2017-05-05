@@ -6,13 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  article: Object;
+  articles: Object[];
 
   constructor() {
-    this.article = {
+    this.articles = [
+      {
       title: "The Angular 2 screencast",
       description: 'The best way to learn angular 2'
-    }
+      },
+      {
+      title: "The Angular 3 screencast",
+      description: 'The best way to learn angular 3'
+      },
+      {
+      title: "The Angular 4 screencast",
+      description: 'The best way to learn angular 4'
+      },
+    ]
   }
 
 }
