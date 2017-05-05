@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../article';
+import { ArticleService } from '../article.service'
 
 @Component({
   selector: 'app-article-list',
@@ -7,11 +8,16 @@ import { Article } from '../article';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit {
+  private articles: Article[];
 
-  @Input() articles: Article[];
-  constructor() { }
+  constructor(
+    private articleService: ArticleService,
+  ) { }
 
   ngOnInit() {
+    this.articleService
+      .getArticles()
+      .then(articles => this.articles = articles);
   }
 
 }
