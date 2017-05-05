@@ -12,8 +12,14 @@ export class AppComponent {
   constructor() {
     this.articles = [
       new Article(
+         "The Angular 1 screencast",
+        'The best way to learn angular 1',
+        10,
+      ),
+      new Article(
          "The Angular 2 screencast",
-        'The best way to learn angular 2'
+        'The best way to learn angular 2',
+        5
       ),
       new Article(
          "The Angular 3 screencast",
