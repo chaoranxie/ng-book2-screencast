@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  article: Object;
+
+  constructor() {
+    this.article = {
+      title: "The Angular 2 screencast",
+      description: 'The best way to learn angular 2'
+    }
+  }
+
 }
