@@ -39,16 +39,17 @@ export class ArticleService {
 
   private _sortByDirectionSubject: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   private _sortByFilterSubject: BehaviorSubject<ArticleSortOrderFn> = new BehaviorSubject<ArticleSortOrderFn>(sortByTime);
-  private _filterBySubject: BehaviorSubject<string> = new BehaviorSubject<string>('')
+  private _filterBySubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private _refreshSubject: BehaviorSubject<string> = new BehaviorSubject<string>('reddit-r-all');
+
   public articles: Observable<Article[]> = this._articles.asObservable();
-
   public sources: Observable<any> = this._sources.asObservable();
-
   public orderedArticles: Observable<Article[]>;
 
   constructor(
     private http: Http
   ) {
+    this._refreshSubject.subscribe(this.getArticles.bind(this));
     this.orderedArticles = Observable.combineLatest(
       this._articles,
       this._sortByFilterSubject,
@@ -77,8 +78,14 @@ export class ArticleService {
     this._filterBySubject.next(filter);
   }
 
-  public getArticles(): void {
-    this._makeHttpRequest('/v1/articles', 'reddit-r-all')
+  public updateArticles(sourceKey): void {
+    this._refreshSubject.next(sourceKey);
+  }
+
+  public getArticles(
+    sourceKey = 'reddit-r-all'
+  ): void {
+    this._makeHttpRequest('/v1/articles', sourceKey)
       .map(json => json.articles)
       .subscribe(articlesJSON => {
         const articles = articlesJSON
