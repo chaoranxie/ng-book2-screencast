@@ -13,6 +13,11 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleListHeaderComponent } from './article-list-header/article-list-header.component';
 import { AboutComponent } from './about/about.component';
 
+import {
+  LocationStrategy,
+  HashLocationStrategy
+} from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ import { AboutComponent } from './about/about.component';
     appRoutes
   ],
   providers: [
-    ArticleService
+    ArticleService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })
