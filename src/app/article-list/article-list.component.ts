@@ -11,7 +11,7 @@ import { ArticleService } from '../article.service'
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent implements OnInit {
-  private articles: Observable<Article[]>;
+  articles: Observable<Article[]>;
 
   constructor(
     private articleService: ArticleService,

@@ -8,7 +8,7 @@ import { ArticleService } from '../article.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  private sources: Observable<any>;
+  sources: Observable<any>;
 
   constructor(
     private articleService: ArticleService
